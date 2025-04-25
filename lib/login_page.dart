@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/home_page.dart';
 import 'package:ucp1pam/register_page.dart';
 
 class LoginPage extends StatefulWidget {
@@ -22,7 +23,7 @@ class _LoginPageState extends State<LoginPage> {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        title: const Text('Selamat Datang Kembali'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -58,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                     Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => const RegisterPage()));
+                        builder: (context) => const HomePage()));
                   }
                 },
                 child: const Text('Login'),
