@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ucp1pam/login_page.dart';
+import 'package:ucp1pam/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -96,6 +96,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       Expanded(
                         child: TextFormField(
+                          obscureText: true,
                           controller: passwordController,
                           decoration: const InputDecoration(
                             labelText: 'Password',
@@ -115,6 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       const SizedBox(width: 16),
                       Expanded(
                         child: TextFormField(
+                          obscureText: true,
                           controller: konfirmasiPasswordController,
                           decoration: const InputDecoration(
                             labelText: 'Konfirmasi Password',
@@ -140,9 +142,13 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const LoginPage()));
-                        }
-                      },
+                          builder: (context) => HomePage(
+                            username: emailController.text,
+                          )
+                        )
+                        );
+                      }
+                    },
                     child: const Text('Register'),
                   ),
                   TextButton(onPressed: () {

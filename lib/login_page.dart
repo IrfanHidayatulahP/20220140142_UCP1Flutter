@@ -10,8 +10,8 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   void initState() {
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                   'images/sb2.png',
                 ),
                 TextFormField(
-                  controller: _emailController,
+                  controller: emailController,
                   decoration: const InputDecoration(labelText: 'Email'),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
@@ -48,7 +48,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                 ),
                 TextFormField(
-                  controller: _passwordController,
+                  controller: passwordController,
                   decoration: const InputDecoration(labelText: 'Password'),
                   obscureText: true,
                   validator: (value) {
@@ -66,8 +66,10 @@ class _LoginPageState extends State<LoginPage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) => HomePage(
-                            username: _emailController.text,
-                          )));
+                            username: emailController.text,
+                          )
+                        )
+                      );
                     }
                   },
                   child: const Text('Login'),
