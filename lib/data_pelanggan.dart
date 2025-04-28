@@ -246,11 +246,15 @@ class _DataPelangganState extends State<DataPelanggan> {
                 const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.pop(context);
+                    namaController.clear();
+                    emailController.clear();
+                    noTelpController.clear();
+                    alamatController.clear();
+                    provinsiController.clear();
+                    kodeposController.clear();
                   },
                   child: const Text('Reset'),
                 ),
-                const SizedBox(height: 30),
               ],
             ),
           ),
