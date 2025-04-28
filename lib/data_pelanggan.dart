@@ -205,7 +205,7 @@ class _DataPelangganState extends State<DataPelanggan> {
                             controller: kodeposController,
                             decoration: const InputDecoration(
                                 labelText: 'Kode Pos',
-                                prefixIcon: Icon(Icons.location_city),
+                                prefixIcon: Icon(Icons.pin_drop),
                                 border: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(Radius.circular(15.0)),
                               ),
