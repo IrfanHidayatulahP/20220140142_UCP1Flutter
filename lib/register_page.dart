@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -31,7 +32,9 @@ class _RegisterPageState extends State<RegisterPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const SizedBox(height: 50),
+              const SizedBox(height: 20),
+              Image.asset('images/sb2.png'),
+              const SizedBox(height: 10),
               const Text('Daftar Akun Baru',
                   style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
@@ -137,10 +140,10 @@ class _RegisterPageState extends State<RegisterPage> {
                         Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const RegisterPage()));
+                          builder: (context) => const LoginPage()));
                         }
                       },
-                    child: const Text('Login'),
+                    child: const Text('Register'),
                   ),
                   TextButton(onPressed: () {
                     Navigator.pop(context);
