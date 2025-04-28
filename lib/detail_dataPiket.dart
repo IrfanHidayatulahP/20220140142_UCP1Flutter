@@ -17,25 +17,57 @@ class DetailDataPiket extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Detail Data Piket'),
         backgroundColor: const Color.fromARGB(255, 214, 181, 167),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              'Nama: $username',
-              style: const TextStyle(fontSize: 20),
+            Row(
+              children: [
+                Text(
+                  tanggal,
+                  style: const TextStyle(
+                    fontSize: 20,
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                const Spacer(),
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 214, 181, 167),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: Text(
+                    username,
+                    style: const TextStyle(fontSize: 20),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 8),
-            Text(
-              'Tanggal: $tanggal',
-              style: const TextStyle(fontSize: 20),
-            ),
-            const SizedBox(height: 8),
-            Text(
-              'Kegiatan: $kegiatan',
-              style: const TextStyle(fontSize: 20),
+            const SizedBox(height: 24),
+            Container(
+              width: double.infinity,
+              padding: const EdgeInsets.all(16),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 214, 181, 167),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                kegiatan,
+                style: const TextStyle(
+                  fontSize: 20,
+                  color: Colors.black,
+                ),
+              ),
             ),
           ],
         ),
