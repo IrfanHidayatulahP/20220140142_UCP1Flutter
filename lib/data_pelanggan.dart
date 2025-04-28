@@ -30,15 +30,29 @@ class _DataPelangganState extends State<DataPelanggan> {
         backgroundColor: const Color.fromARGB(255, 214, 181, 167),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(20.0),
         child: SingleChildScrollView(
           child: Form(
             key: _formKey,
             child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
+                const Text(
+                  'Nama Customer',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,                  
+                  ),
+                ),
                 TextFormField(
                   controller: namaController,
-                  decoration: const InputDecoration(labelText: 'Nama Lengkap'),
+                  decoration: const InputDecoration(
+                    labelText: 'Nama Customer',
+                    prefixIcon: Icon(Icons.person),
+                      border: OutlineInputBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      ),
+                    ),
                   validator: (value) {
                     if (value == null || value.isEmpty) {
                       return 'Silahkan Masukkan Nama Lengkap Anda';
@@ -46,82 +60,189 @@ class _DataPelangganState extends State<DataPelanggan> {
                     return null;
                   },
                 ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: emailController,
-                  decoration: const InputDecoration(labelText: 'Email'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silahkan Masukkan Email Anda';
-                    }
-                    return null;
-                  },
+                const SizedBox(height: 30),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Email',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: emailController,
+                            decoration: const InputDecoration(
+                              labelText: 'Email',
+                              prefixIcon: Icon(Icons.email),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                ),
+                              ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Silahkan Masukkan Email Anda';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 30),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'No Hp',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: noTelpController,
+                            decoration: const InputDecoration(
+                              labelText: 'No Hp',
+                              prefixIcon: Icon(Icons.phone),
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                                ),
+                              ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Silahkan Masukkan No Telepon Anda';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: noTelpController,
-                  decoration: const InputDecoration(labelText: 'No Telepon'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silahkan Masukkan No Telepon Anda';
-                    }
-                    return null;
-                  },
+                const SizedBox(height: 30),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text(
+                      'Alamat',
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    TextFormField(
+                      controller: alamatController,
+                      decoration: const InputDecoration(
+                        labelText: 'Alamat',
+                        prefixIcon: Icon(Icons.home),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                        ),
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Silahkan Masukkan Alamat Anda';
+                        }
+                        return null;
+                      },
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: alamatController,
-                  decoration: const InputDecoration(labelText: 'Alamat'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silahkan Masukkan Alamat Anda';
-                    }
-                    return null;
-                  },
+                const SizedBox(height: 30),
+                Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Provinsi',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: provinsiController,
+                            decoration:const InputDecoration(
+                              labelText: 'Provinsi',
+                              prefixIcon: Icon(Icons.location_city),
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Silahkan Masukkan Provinsi Anda';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(width: 30),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Text(
+                            'Kode Pos',
+                            style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          TextFormField(
+                            controller: kodeposController,
+                            decoration: const InputDecoration(
+                                labelText: 'Kode Pos',
+                                prefixIcon: Icon(Icons.location_city),
+                                border: OutlineInputBorder(
+                                borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                              ),
+                            ),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Silahkan Masukkan Kode Pos Anda';
+                              }
+                              return null;
+                            },
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: provinsiController,
-                  decoration:
-                      const InputDecoration(labelText: 'Provinsi'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silahkan Masukkan Provinsi Anda';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
-                TextFormField(
-                  controller: kodeposController,
-                  decoration:
-                      const InputDecoration(labelText: 'Kode Pos'),
-                  validator: (value) {
-                    if (value == null || value.isEmpty) {
-                      return 'Silahkan Masukkan Kode Pos Anda';
-                    }
-                    return null;
-                  },
-                ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      ScaffoldMessenger.of(context).showSnackBar(
-                        const SnackBar(content: Text('Data Pelanggan Disimpan')),
+                      Navigator.push(
+                        context, 
+                        MaterialPageRoute(
+                          builder: (context) => const DataPelanggan(),
+                        )
                       );
                     }
                   },
                   child: const Text('Simpan'),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.pop(context);
                   },
                   child: const Text('Reset'),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 30),
               ],
             ),
           ),
