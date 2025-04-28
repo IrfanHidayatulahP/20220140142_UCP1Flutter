@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/detail_dataPelanggan.dart';
 
 class DataPelanggan extends StatefulWidget {
   const DataPelanggan({super.key});
@@ -228,7 +229,14 @@ class _DataPelangganState extends State<DataPelanggan> {
                       Navigator.push(
                         context, 
                         MaterialPageRoute(
-                          builder: (context) => const DataPelanggan(),
+                          builder: (context) => DetailDatapelanggan(
+                            namaLengkap: namaController.text,
+                            email: emailController.text,
+                            noTelp: noTelpController.text,
+                            alamat: alamatController.text,
+                            provinsi: provinsiController.text,
+                            kodepos: kodeposController.text,
+                          ),
                         )
                       );
                     }
