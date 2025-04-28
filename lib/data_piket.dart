@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:ucp1pam/detail_dataPiket.dart';
+import 'package:ucp1pam/home_page.dart';
 
 class DataPiket extends StatefulWidget {
   final String username;
@@ -62,7 +63,11 @@ class _DataPiketState extends State<DataPiket> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => HomePage(username: emailController.text)), // Replace 'SomeOtherPage' with your desired page
+              (Route<dynamic> route) => false,
+            );
           },
         ),
         title: const Text(
