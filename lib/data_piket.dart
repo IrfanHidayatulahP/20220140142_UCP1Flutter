@@ -197,7 +197,7 @@ class _DataPiketState extends State<DataPiket> {
                         trailing: IconButton(
                           icon: const Icon(Icons.arrow_forward_ios_outlined, color: Colors.red),
                           onPressed: () {
-                            Navigator.pushReplacement(
+                            Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => DetailDataPiket(
