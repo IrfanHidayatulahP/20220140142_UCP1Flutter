@@ -47,26 +47,11 @@ class _DataPiketState extends State<DataPiket> {
     );
 
     if (pickedDate != null) {
-      TimeOfDay? pickedTime = await showTimePicker(
-        context: context,
-        initialTime: TimeOfDay.now(),
-      );
-
-      if (pickedTime != null) {
-        DateTime finalDateTime = DateTime(
-          pickedDate.year,
-          pickedDate.month,
-          pickedDate.day,
-          pickedTime.hour,
-          pickedTime.minute,
-        );
-
         setState(() {
-          tanggalController.text = DateFormat('yyyy-MM-dd HH:mm').format(finalDateTime);
+          tanggalController.text = DateFormat('yyyy-MM-dd').format(pickedDate);
         });
       }
     }
-  }
 
   @override
   Widget build(BuildContext context) {
