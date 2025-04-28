@@ -65,7 +65,9 @@ class _LoginPageState extends State<LoginPage> {
                       Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const HomePage()));
+                          builder: (context) => HomePage(
+                            username: _emailController.text,
+                          )));
                     }
                   },
                   child: const Text('Login'),

@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:ucp1pam/login_page.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final String username;
+
+  const HomePage({
+    super.key, required this.username,
+  });
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -36,16 +40,16 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                     const SizedBox(width: 12),
-                    const Column(
+                    Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
+                        const Text(
                           'Selamat Datang',
                           style: TextStyle(color: Colors.white, fontSize: 16),
                         ),
                         Text(
-                          'Admin',
-                          style: TextStyle(
+                          widget.username,
+                          style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold,
