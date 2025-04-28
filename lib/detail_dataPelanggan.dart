@@ -35,6 +35,7 @@ class DetailDatapelanggan extends StatelessWidget {
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 16),
             const CircleAvatar(
@@ -57,19 +58,45 @@ class DetailDatapelanggan extends StatelessWidget {
               style: const TextStyle(fontSize: 16, color: Colors.grey),
             ),
             const SizedBox(height: 10),
-            Text(
-              alamat,
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            TextFormField(
+              initialValue: alamat,
+              decoration: const InputDecoration(
+                labelText: 'Alamat',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                ),
+                prefixIcon: Icon(Icons.home),
+              ),
             ),
-            const SizedBox(height: 10),
-            Text(
-              provinsi,
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              kodepos,
-              style: const TextStyle(fontSize: 16, color: Colors.grey),
+            const SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    initialValue: provinsi,
+                    decoration: const InputDecoration(
+                      labelText: 'Provinsi',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      ),
+                      prefixIcon: Icon(Icons.location_city),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 20),
+                Expanded(
+                  child: TextFormField(
+                    initialValue: kodepos,
+                    decoration: const InputDecoration(
+                      labelText: 'Kode Pos',
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                      ),
+                      prefixIcon: Icon(Icons.pin_drop),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
