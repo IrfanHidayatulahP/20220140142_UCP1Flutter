@@ -22,7 +22,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           // Custom AppBar
           Container(
-            color: Colors.deepOrange,
+            color: const Color.fromARGB(255, 214, 181, 167),
             padding: const EdgeInsets.only(top: 40, left: 16, right: 16, bottom: 16),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -169,7 +169,7 @@ class MenuButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.deepOrange,
+          backgroundColor: const Color.fromARGB(255, 214, 181, 167),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20),
           ),
