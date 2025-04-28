@@ -100,9 +100,9 @@ class _HomePageState extends State<HomePage> {
                                 icon: Icons.schedule,
                                 label: 'Data Piket',
                                 onPressed: () {
-                                  Navigator.push(
+                                  Navigator.pushReplacement(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const DataPiket()),
+                                    MaterialPageRoute(builder: (context) => DataPiket(username: widget.username,)),
                                   );
                                 },
                               ),
