@@ -129,6 +129,9 @@ class _RegisterPageState extends State<RegisterPage> {
                             if (value == null || value.isEmpty) {
                               return 'Silahkan Masukkan Konfirmasi Password Anda';
                             }
+                            if (value != passwordController.text) {
+                              return 'Password tidak sesuai!';
+                            }
                             return null;
                           },
                         ),
