@@ -23,16 +23,20 @@ class _RegisterPageState extends State<RegisterPage> {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
-      body: Form(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
+      backgroundColor: const Color.fromARGB(255, 214, 181, 167),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
+        child: Form(
+          key: _formKey,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('Register'),
-              Column(
-                children: [
-                  TextFormField(
+              const SizedBox(height: 50),
+              const Text('Daftar Akun Baru',
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 30),
+                TextFormField(
                     controller: namaController,
                     decoration: const InputDecoration(labelText: 'Nama Lengkap'),
                     validator: (value) {
@@ -42,46 +46,91 @@ class _RegisterPageState extends State<RegisterPage> {
                       return null;
                     },
                   ),
-                  TextFormField(
-                    controller: emailController,
-                    decoration: const InputDecoration(labelText: 'Email'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Silahkan Masukkan Email Anda';
-                      }
-                      return null;
-                    },
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: emailController,
+                          decoration: const InputDecoration(
+                            labelText: 'Email',
+                            prefixIcon: Icon(Icons.email),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Silahkan Masukkan Email Anda';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 20),
+                      Expanded(
+                        child: TextFormField(
+                          controller: noTelpController,
+                          decoration: const InputDecoration(
+                            labelText: 'No. Hp',
+                            prefixIcon: Icon(Icons.phone),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Silahkan Masukkan No HP Anda';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  TextFormField(
-                    controller: noTelpController,
-                    decoration: const InputDecoration(labelText: 'No. HP'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Silahkan Masukkan No HP Anda';
-                      }
-                      return null;
-                    },
+                  const SizedBox(height: 20),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          controller: passwordController,
+                          decoration: const InputDecoration(
+                            labelText: 'Password',
+                            prefixIcon: Icon(Icons.lock),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Silahkan Masukkan Password Anda';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 16),
+                      Expanded(
+                        child: TextFormField(
+                          controller: konfirmasiPasswordController,
+                          decoration: const InputDecoration(
+                            labelText: 'Konfirmasi Password',
+                            prefixIcon: Icon(Icons.phone),
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                          ),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Silahkan Masukkan Konfirmasi Password Anda';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ],
                   ),
-                  TextFormField(
-                    controller: passwordController,
-                    decoration: const InputDecoration(labelText: 'Password'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Silahkan Masukkan Password Anda';
-                      }
-                      return null;
-                    },
-                  ),
-                  TextFormField(
-                    controller: konfirmasiPasswordController,
-                    decoration: const InputDecoration(labelText: 'Konfirmasi Ulang Password'),
-                    validator: (value) {
-                      if (value == null || value.isEmpty) {
-                        return 'Silahkan Masukkan Ulang Password Anda';
-                      }
-                      return null;
-                    },
-                  ),
+                  const SizedBox(height: 20),
                   ElevatedButton(
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
@@ -96,14 +145,14 @@ class _RegisterPageState extends State<RegisterPage> {
                   TextButton(onPressed: () {
                     Navigator.pop(context);
                   }, 
-                  child: const Text('Sudah Punya Akun? Login!')
+                  child: const Text(
+                    'Sudah Punya Akun? Login!',
+                    style: TextStyle(color: Colors.red),)
                   ),
                 ],
               ),
-            ],
           ),
         ),
-      ),
-    );
+      );
   }
 }

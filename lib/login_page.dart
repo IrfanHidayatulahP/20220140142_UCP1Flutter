@@ -22,15 +22,16 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     final _formKey = GlobalKey<FormState>();
     return Scaffold(
+      backgroundColor: const Color.fromARGB(255, 214, 181, 167),
       appBar: AppBar(
         title: const Text('Selamat Datang Kembali'),
+        backgroundColor: const Color.fromARGB(255, 214, 181, 167),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(
           key: _formKey,
           child: Column(
-            
             children: [
               TextFormField(
                 controller: _emailController,
