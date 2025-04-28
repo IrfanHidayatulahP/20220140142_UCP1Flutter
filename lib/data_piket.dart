@@ -66,7 +66,7 @@ class _DataPiketState extends State<DataPiket> {
             Navigator.pushAndRemoveUntil(
               context,
               MaterialPageRoute(builder: (context) => HomePage(username: emailController.text)), // Replace 'SomeOtherPage' with your desired page
-              (Route<dynamic> route) => false,
+              (route) => false,
             );
           },
         ),
