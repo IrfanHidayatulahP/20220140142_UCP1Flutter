@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1pam/detail_dataPiket.dart';
 
 class DataPiket extends StatefulWidget {
   final String username;
@@ -72,7 +73,7 @@ class _DataPiketState extends State<DataPiket> {
     return Scaffold(
       backgroundColor: const Color(0xFFFEF7F5),
       appBar: AppBar(
-        backgroundColor: const Color(0xFFFF4500),
+        backgroundColor: const Color.fromARGB(255, 214, 181, 167),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
@@ -205,7 +206,18 @@ class _DataPiketState extends State<DataPiket> {
                         ),
                         trailing: IconButton(
                           icon: const Icon(Icons.arrow_back, color: Colors.red),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => DetailDataPiket(
+                                  username: dataPiket[index]['nama'] ?? '',
+                                  tanggal: dataPiket[index]['tanggal'] ?? '',
+                                  kegiatan: dataPiket[index]['kegiatan'] ?? '',
+                                ),
+                              ),
+                            );
+                          },
                         ),
                       ),
                     );
