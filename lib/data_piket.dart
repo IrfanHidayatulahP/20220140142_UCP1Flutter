@@ -17,6 +17,12 @@ class _DataPiketState extends State<DataPiket> {
   final TextEditingController kegiatanController = TextEditingController();
   List<Map<String, String>> dataPiket = [];
 
+  @override
+  void initState() {
+    super.initState();
+    emailController.text = widget.username;
+  }
+
   addDataPiket() {
     if (_formKey.currentState!.validate()) {
       setState(() {
@@ -25,7 +31,6 @@ class _DataPiketState extends State<DataPiket> {
           'tanggal': tanggalController.text,
           'kegiatan': kegiatanController.text,
         });
-        emailController.clear();
         tanggalController.clear();
         kegiatanController.clear();
       });
@@ -114,11 +119,11 @@ class _DataPiketState extends State<DataPiket> {
                 ),
                 const SizedBox(height: 20),
                 const Text(
-                  "Task Date:",
+                  "Tanggal & Waktu:",
                   style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const Text(
-                  "Select a date and time",
+                  "Pilih Tanggal dan Waktu Piket",
                   style: TextStyle(fontSize: 14),
                 ),
                 const SizedBox(height: 8),
@@ -153,7 +158,7 @@ class _DataPiketState extends State<DataPiket> {
                         controller: kegiatanController,
                         decoration: InputDecoration(
                           border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                          hintText: 'Mengetik Tugas...',
+                          hintText: 'Masukkan Tugas Piket',
                           contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
                         ),
                         validator: (value) {
