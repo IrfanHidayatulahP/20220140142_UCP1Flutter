@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/data_pelanggan.dart';
 import 'package:ucp1pam/data_piket.dart';
 import 'package:ucp1pam/login_page.dart';
 
@@ -115,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const LoginPage()),
+                                    MaterialPageRoute(builder: (context) => const DataPelanggan()),
                                   );
                                 },
                               ),
