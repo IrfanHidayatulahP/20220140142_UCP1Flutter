@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/data_piket.dart';
 
 class DetailDataPiket extends StatelessWidget {
   final String username;
@@ -20,7 +21,11 @@ class DetailDataPiket extends StatelessWidget {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back, color: Colors.white),
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(builder: (context) => DataPiket(username: username)), // Replace Placeholder with your desired widget
+              (route) => false,
+            );
           },
         ),
       ),
