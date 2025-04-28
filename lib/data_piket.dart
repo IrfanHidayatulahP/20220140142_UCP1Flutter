@@ -65,7 +65,7 @@ class _DataPiketState extends State<DataPiket> {
           onPressed: () {
             Navigator.pushAndRemoveUntil(
               context,
-              MaterialPageRoute(builder: (context) => HomePage(username: emailController.text)), // Replace 'SomeOtherPage' with your desired page
+              MaterialPageRoute(builder: (context) => HomePage(username: emailController.text)), 
               (route) => false,
             );
           },
@@ -195,7 +195,7 @@ class _DataPiketState extends State<DataPiket> {
                           style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                         trailing: IconButton(
-                          icon: const Icon(Icons.arrow_back, color: Colors.red),
+                          icon: const Icon(Icons.arrow_forward_ios_outlined, color: Colors.red),
                           onPressed: () {
                             Navigator.pushReplacement(
                               context,
