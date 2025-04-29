@@ -23,6 +23,27 @@ class DetailDatabarang extends StatefulWidget {
 }
 
 class _DetailDatabarangState extends State<DetailDatabarang> {
+  final TextStyle labelStyle = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w500
+  );
+  final TextStyle valueStyle = const TextStyle(
+    fontSize: 16,
+  );
+
+  Widget buildDataRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 16),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(label, style: labelStyle),
+          Text(value, style: valueStyle),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,36 +69,58 @@ class _DetailDatabarangState extends State<DetailDatabarang> {
                 radius: 60,
                 child: Icon(Icons.check_circle_outline_sharp, size: 100, color: Colors.blue),
               ),
-              const SizedBox(height: 16),
-              Text(
+              const SizedBox(height: 20),
+              const Text(
+                'Data Berhasil Disimpan',
+                style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+              ),
+              const SizedBox(height: 30),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Tanggal",
                 widget.tanggal,
-                style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              const SizedBox(height: 10),
-              Text(
-                widget.transaksi,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Jenis Transaksi",
+                widget.transaksi
               ),
-              const SizedBox(height: 10),
-              Text(
-                widget.barang,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Jenis Barang",
+                widget.barang
               ),
-              const SizedBox(height: 10),
-              Text(
-                widget.jumlah,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Jumlah Barang",
+                widget.jumlah
               ),
-              const SizedBox(height: 10),
-              Text(
-                widget.hargaSatuan,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Jenis Harga Satuan",
+                widget.hargaSatuan
               ),
-              const SizedBox(height: 10),
-              Text(
-                widget.totalHarga,
-                style: const TextStyle(fontSize: 16, color: Colors.grey),
+              const Divider(thickness: 1),
+              buildDataRow(
+                "Total Harga",
+                widget.totalHarga
               ),
+              const Divider(thickness: 1),
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(onPressed: () {
+                  Navigator.popUntil(context, (route) => route.isFirst);
+                }, 
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: const Color.fromARGB(255, 214, 181, 167),
+                  minimumSize: const Size(double.infinity, 50),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(24),
+                  ),
+                ),
+                child: const Text('Selesai', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),),
+                ),
+              )
             ],
           ),
         ),
