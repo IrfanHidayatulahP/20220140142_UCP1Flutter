@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:intl/intl.dart';
+import 'package:ucp1pam/detail_dataBarang.dart';
 
 class DataBarang extends StatefulWidget {
   const DataBarang({super.key});
@@ -217,7 +217,14 @@ class _DataBarangState extends State<DataBarang> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const DataBarang(),
+                            builder: (context) => DetailDatabarang(
+                                tanggal: tanggalController.text,
+                                transaksi: transaksiController.text,
+                                barang: barangController.text,
+                                jumlah: jumlahController.text,
+                                hargaSatuan: hargaSatuanController.text,
+                                totalHarga: (int.parse(jumlahController.text) * hargaSatuan).toString(),
+                            ),
                           ),
                         );
                       }
