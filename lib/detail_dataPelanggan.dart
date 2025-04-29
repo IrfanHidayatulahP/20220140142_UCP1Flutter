@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:ucp1pam/home_page.dart';
 
 class DetailDatapelanggan extends StatelessWidget {
+  final String username;
   final String namaLengkap;
   final String email;
   final String noTelp;
@@ -9,6 +11,7 @@ class DetailDatapelanggan extends StatelessWidget {
   final String kodepos;
   const DetailDatapelanggan({
     super.key,
+    required this.username,
     required this.namaLengkap,
     required this.email,
     required this.noTelp,
@@ -98,6 +101,29 @@ class DetailDatapelanggan extends StatelessWidget {
                 ),
               ],
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                var widget = HomePage(username: username);
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (BuildContext context) => HomePage(username: widget.username)),
+                  (route) => false,
+                );
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color.fromARGB(255, 214, 181, 167),
+                padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 12),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+              ), 
+              child: 
+                const Text(
+                  'Selesai', 
+                  style: TextStyle(fontSize: 16, color: Colors.white),
+                ),
+              ),
           ],
         ),
       ),

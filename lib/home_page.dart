@@ -116,7 +116,7 @@ class _HomePageState extends State<HomePage> {
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => const DataPelanggan()),
+                                    MaterialPageRoute(builder: (context) => DataPelanggan(username: widget.username,)),
                                   );
                                 },
                               ),

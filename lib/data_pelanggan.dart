@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:ucp1pam/detail_dataPelanggan.dart';
 
 class DataPelanggan extends StatefulWidget {
-  const DataPelanggan({super.key});
+  final String username;
+
+  const DataPelanggan({super.key, required this.username,});
 
   @override
   State<DataPelanggan> createState() => _DataPelangganState();
@@ -230,6 +232,7 @@ class _DataPelangganState extends State<DataPelanggan> {
                         context, 
                         MaterialPageRoute(
                           builder: (context) => DetailDatapelanggan(
+                            username: widget.username,
                             namaLengkap: namaController.text,
                             email: emailController.text,
                             noTelp: noTelpController.text,
