@@ -214,6 +214,8 @@ class _DataBarangState extends State<DataBarang> {
                   child: ElevatedButton(
                     onPressed: () {
                       if (_formkey.currentState!.validate()) {
+                        int jumlah = int.parse(jumlahController.text);
+                        int totalHarga = jumlah * hargaSatuan;
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -223,7 +225,7 @@ class _DataBarangState extends State<DataBarang> {
                                 barang: barangController.text,
                                 jumlah: jumlahController.text,
                                 hargaSatuan: hargaSatuanController.text,
-                                totalHarga: (int.parse(jumlahController.text) * hargaSatuan).toString(),
+                                totalHarga: totalHarga.toString(),
                             ),
                           ),
                         );
