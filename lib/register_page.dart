@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ucp1pam/home_page.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -14,6 +15,9 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController noTelpController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController konfirmasiPasswordController = TextEditingController();
+
+  bool _obscurePassword = true;
+  bool _obscureConfirmPassword = true;
 
   @override
   void initState() {
@@ -96,13 +100,23 @@ class _RegisterPageState extends State<RegisterPage> {
                     children: [
                       Expanded(
                         child: TextFormField(
-                          obscureText: true,
+                          obscureText: _obscurePassword,
                           controller: passwordController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Password',
-                            prefixIcon: Icon(Icons.lock),
-                            border: OutlineInputBorder(
+                            prefixIcon: const Icon(Icons.lock),
+                            border: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscurePassword ? Icons.visibility : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscurePassword = !_obscurePassword;
+                                });
+                              },
                             ),
                           ),
                           validator: (value) {
@@ -116,13 +130,23 @@ class _RegisterPageState extends State<RegisterPage> {
                       const SizedBox(width: 16),
                       Expanded(
                         child: TextFormField(
-                          obscureText: true,
+                          obscureText: _obscureConfirmPassword,
                           controller: konfirmasiPasswordController,
-                          decoration: const InputDecoration(
+                          decoration: InputDecoration(
                             labelText: 'Konfirmasi Password',
-                            prefixIcon: Icon(Icons.phone),
-                            border: OutlineInputBorder(
+                            prefixIcon: const Icon(Icons.lock),
+                            border: const OutlineInputBorder(
                               borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                            ),
+                            suffixIcon: IconButton(
+                              icon: Icon(
+                                _obscureConfirmPassword ? Icons.visibility : Icons.visibility_off,
+                              ),
+                              onPressed: () {
+                                setState(() {
+                                  _obscureConfirmPassword = !_obscureConfirmPassword;
+                                });
+                              },
                             ),
                           ),
                           validator: (value) {
