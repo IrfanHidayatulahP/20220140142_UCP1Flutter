@@ -1,3 +1,7 @@
+Link Gdrive record Tampilan
+https://drive.google.com/drive/folders/1xzKf_f3rjnubF4t8XNabLQaXezlI7YVl?usp=sharing
+
+
 Halaman Login
 ![image](https://github.com/user-attachments/assets/949dab09-bd8a-4374-84a5-e6f746a53197)
 ![image](https://github.com/user-attachments/assets/6b2c154f-3cd5-46b3-8977-83cfdc3a7488)
